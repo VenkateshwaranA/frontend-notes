@@ -1,5 +1,6 @@
 "use client";
 import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -23,34 +24,27 @@ function Forms({ cardName, buttonName }: props) {
   } = useForm<Inputs>();
   const handleSignUp: SubmitHandler<Inputs> = async (data) => {
     try {
-      console.log(data);
       const resp = await axios.post(
         `${process.env.NEXT_PUBLIC_BE_URL}/register`,
         data
       );
-      console.log({ resp });
       if (resp.status == 200) {
         router.push("/signin");
       }
     } catch (error) {
-      console.error("error in sign UP --->", error);
     }
   };
   const handleSignIn: SubmitHandler<Inputs> = async (data) => {
-    console.log("singggggggggggg", data);
     try {
-      console.log(data);
       const resp = await axios.post(
         `${process.env.NEXT_PUBLIC_BE_URL}/login`,
         data
       );
-      console.log({ resp });
       if (resp.status == 200) {
-        router.push("/");
         localStorage.setItem("token", resp.data.access_token);
+        router.push("/");
       }
     } catch (error) {
-      console.error("error in sign UP --->", error);
     }
   };
   const password = watch("password");
@@ -130,8 +124,8 @@ function Forms({ cardName, buttonName }: props) {
               {...register("password", {
                 required: "Password is required",
                 minLength: {
-                  value: 5,
-                  message: "Password must be at least 5 characters",
+                  value: 6,
+                  message: "Password must be at least 6 characters",
                 },
               })}
               type="password"
@@ -182,6 +176,21 @@ function Forms({ cardName, buttonName }: props) {
           >
             {buttonName}
           </button>
+          {cardName == "Sign Up" ? (
+            <p>
+              Alread have Account?
+              <Link className="text-blue-500 ml-3.5" href={"/signin"}>
+                Sing In
+              </Link>
+            </p>
+          ) : (
+            <p>
+              Do you want create Account?
+              <Link className="text-blue-500 ml-3.5" href={"/signup"}>
+                Sign Up
+              </Link>
+            </p>
+          )}
         </form>
       </div>
     </div>
