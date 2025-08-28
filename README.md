@@ -56,3 +56,9 @@ With notes
 
 Add note UI
 ![alt text](image-4.png)
+
+Update Note UI
+![alt text](image-6.png)
+
+Delete Confirm
+![alt text](image-7.png)
