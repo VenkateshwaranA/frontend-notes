@@ -37,3 +37,22 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 env variables:
 NEXT_PUBLIC_BE_URL= backend url (eg:http://localhost:11111)
+
+Initial page
+![alt text](image.png)
+
+Signin Page
+![alt text](image-1.png)
+
+Sigup page
+![alt text](image-2.png)
+
+Without notes
+![alt text](image-3.png)
+
+With notes
+![alt text](image-5.png)
+
+
+Add note UI
+![alt text](image-4.png)

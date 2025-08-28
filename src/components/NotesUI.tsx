@@ -24,7 +24,7 @@ function NotesUI({ handleDelete, listAllNotes, setListAllNotes }: any) {
     setIsModel(true);
     setUpdateData(data);
   };
-  console.log(listAllNotes,"listAllNotes")
+  console.log(listAllNotes, "listAllNotes");
 
   return (
     <div className="mt-20 ">
@@ -68,7 +68,13 @@ function NotesUI({ handleDelete, listAllNotes, setListAllNotes }: any) {
           })}
         </div>
       ) : (
-        <></>
+        <>
+          <div className="max-w-sm mx-auto my-36 bg-white shadow-lg rounded-xl p-6 flex items-center justify-center">
+            <h1 className="text-gray-700 text-lg font-semibold">
+              No Notes available
+            </h1>
+          </div>
+        </>
       )}
 
       {ismodal && (
